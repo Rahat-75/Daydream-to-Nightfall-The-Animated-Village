@@ -69,7 +69,7 @@ void drawJet() {
     glEnd();
 
     // Jet tail fin
-    glColor3ub(50, 205, 50); // Lime green
+    glColor3ub(128, 0, 128); // Purple
     glBegin(GL_TRIANGLES);
     glVertex2f(jetPosX - 20.0, jetPosY);
     glVertex2f(jetPosX - 25.0, jetPosY + 15.0);
@@ -1120,99 +1120,211 @@ void drawSailBoat() {
     glEnd();
 }
 
-// Draw a sports car
-void drawCar() {
-    // Car body
-    glColor3ub(255, 20, 147); // Hot pink
+void drawRoad() {
+    // Main road
+    glColor3ub(60, 40, 80); // Dark purple-gray for asphalt, vibrant yet subtle
     glBegin(GL_POLYGON);
-    glVertex2f(15.0, -60.0);
-    glVertex2f(65.0, -60.0);
-    glVertex2f(62.0, -50.0);
-    glVertex2f(18.0, -50.0);
+    glVertex2f(13.0, -87.0);
+    glVertex2f(100.0, -87.0);
+    glVertex2f(100.0, -53.0);
+    glVertex2f(13.0, -53.0);
     glEnd();
 
-    // Car cockpit
-    glColor3ub(0, 255, 255); // Cyan
+    // Center line (single yellow line)
+    glColor3ub(255, 204, 0);
     glBegin(GL_POLYGON);
-    glVertex2f(30.0, -50.0);
-    glVertex2f(50.0, -50.0);
-    glVertex2f(48.0, -45.0);
-    glVertex2f(32.0, -45.0);
+    glVertex2f(13.0, -70.5);
+    glVertex2f(100.0, -70.5);
+    glVertex2f(100.0, -69.5);
+    glVertex2f(13.0, -69.5);
     glEnd();
 
-    // Car front spoiler
-    glColor3ub(255, 255, 0); // Yellow
-    glBegin(GL_POLYGON);
-    glVertex2f(15.0, -60.0);
-    glVertex2f(18.0, -60.0);
-    glVertex2f(18.0, -62.0);
-    glVertex2f(15.0, -62.0);
-    glEnd();
+    glColor3ub(255, 255, 255); // White
+    for (int i = 0; i < 4; i++) {
+        glBegin(GL_POLYGON);
+        glVertex2f(13.0 + i * 20.0, -80.5);
+        glVertex2f(13.0 + i * 20.0 + 10.0, -80.5);
+        glVertex2f(13.0 + i * 20.0 + 10.0, -80.0);
+        glVertex2f(13.0 + i * 20.0, -80.0);
+        glEnd();
 
-    // Car windows
-    glColor3ub(50, 50, 50); // Dark gray
-    glBegin(GL_POLYGON);
-    glVertex2f(32.0, -49.0);
-    glVertex2f(48.0, -49.0);
-    glVertex2f(46.0, -46.0);
-    glVertex2f(34.0, -46.0);
-    glEnd();
-
-    // Car wheels
-    glColor3ub(255, 215, 0); // Gold
-    circle(5.0, 5.0, 25.0, -59.0);
-    circle(5.0, 5.0, 55.0, -59.0);
-    glColor3ub(100, 100, 100); // Gray rims
-    circle(3.0, 3.0, 25.0, -59.0);
-    circle(3.0, 3.0, 55.0, -59.0);
+        glBegin(GL_POLYGON);
+        glVertex2f(13.0 + i * 20.0, -60.5);
+        glVertex2f(13.0 + i * 20.0 + 10.0, -60.5);
+        glVertex2f(13.0 + i * 20.0 + 10.0, -60.0);
+        glVertex2f(13.0 + i * 20.0, -60.0);
+        glEnd();
+    }
 }
 
-// Draw a modern car
-void drawNewCar() {
-    // Car body
-    glColor3ub(245, 224, 1); // Vibrant green
+// First modern sedan, replacing drawCar()
+void drawModernCar1() {
+    float x = 15.0;
+    float y = -60.0;
+    glColor3ub(255, 105, 180); // Hot pink
     glBegin(GL_POLYGON);
-    glVertex2f(32.0, -80.0);
-    glVertex2f(88.0, -80.0);
-    glVertex2f(85.0, -68.0);
-    glVertex2f(35.0, -68.0);
+    glVertex2f(x, y);
+    glVertex2f(x + 50.0, y);
+    glVertex2f(x + 50.0, y + 12.0);
+    glVertex2f(x, y + 12.0);
     glEnd();
-
-    // Car cockpit
-    glColor3ub(100, 100, 248); // Orange
+    glColor3ub(200, 50, 150); // Darker pink
     glBegin(GL_POLYGON);
-    glVertex2f(48.0, -70.0);
-    glVertex2f(72.0, -70.0);
-    glVertex2f(70.0, -65.0);
-    glVertex2f(50.0, -65.0);
+    glVertex2f(x + 12.0, y + 12.0);
+    glVertex2f(x + 18.0, y + 22.0);
+    glVertex2f(x + 38.0, y + 22.0);
+    glVertex2f(x + 44.0, y + 12.0);
     glEnd();
-
-    // Car front spoiler
-    glColor3ub(128, 0, 128); // Purple
+    glColor3ub(135, 180, 255); // Light blue windshield
     glBegin(GL_POLYGON);
-    glVertex2f(32.0, -80.0);
-    glVertex2f(36.0, -80.0);
-    glVertex2f(36.0, -83.0);
-    glVertex2f(32.0, -83.0);
+    glVertex2f(x + 13.0, y + 12.0);
+    glVertex2f(x + 18.0, y + 20.0);
+    glVertex2f(x + 23.0, y + 20.0);
+    glVertex2f(x + 23.0, y + 12.0);
     glEnd();
-
-    // Car windows
-    glColor3ub(50, 50, 50); // Dark gray
     glBegin(GL_POLYGON);
-    glVertex2f(52.0, -69.0);
-    glVertex2f(68.0, -69.0);
-    glVertex2f(66.0, -66.0);
-    glVertex2f(54.0, -66.0);
+    glVertex2f(x + 33.0, y + 12.0);
+    glVertex2f(x + 33.0, y + 20.0);
+    glVertex2f(x + 37.0, y + 20.0);
+    glVertex2f(x + 42.0, y + 12.0);
     glEnd();
-
-    // Car wheels
-    glColor3ub(0, 255, 255); // Cyan
-    circle(5.5, 5.5, 44.0, -78.5);
-    circle(5.5, 5.5, 76.0, -78.5);
-    glColor3ub(200, 200, 200); // Light gray rims
-    circle(3.5, 3.5, 44.0, -78.5);
-    circle(3.5, 3.5, 76.0, -78.5);
+    glColor3ub(100, 150, 255); // Medium blue windows
+    glBegin(GL_POLYGON);
+    glVertex2f(x + 23.0, y + 12.0);
+    glVertex2f(x + 23.0, y + 20.0);
+    glVertex2f(x + 33.0, y + 20.0);
+    glVertex2f(x + 33.0, y + 12.0);
+    glEnd();
+    glColor3ub(0, 0, 0);
+    glLineWidth(1.0);
+    glBegin(GL_LINES);
+    glVertex2f(x + 28.0, y + 12.0);
+    glVertex2f(x + 28.0, y + 20.0);
+    glVertex2f(x + 23.0, y + 16.0);
+    glVertex2f(x + 25.0, y + 16.0);
+    glVertex2f(x + 31.0, y + 16.0);
+    glVertex2f(x + 33.0, y + 16.0);
+    glEnd();
+    glColor3ub(50, 50, 50);
+    circle(5.0, 5.0, x + 15.0, y);
+    circle(5.0, 5.0, x + 40.0, y);
+    glColor3ub(255, 215, 0);
+    circle(3.0, 3.0, x + 15.0, y);
+    circle(3.0, 3.0, x + 40.0, y);
+    glColor3ub(255, 255, 255);
+    circle(1.0, 1.0, x + 15.0, y);
+    circle(1.0, 1.0, x + 40.0, y);
+    glColor3ub(150, 150, 150);
+    glLineWidth(1.5);
+    glBegin(GL_LINES);
+    for (int i = 0; i < 4; i++) {
+        float angle = i * PI / 2.0;
+        glVertex2f(x + 15.0, y);
+        glVertex2f(x + 15.0 + 2.5 * cosf(angle), y + 2.5 * sinf(angle));
+        glVertex2f(x + 40.0, y);
+        glVertex2f(x + 40.0 + 2.5 * cosf(angle), y + 2.5 * sinf(angle));
+    }
+    glEnd();
+    glColor3ub(200, 200, 200);
+    glBegin(GL_POLYGON);
+    glVertex2f(x + 48.0, y + 4.0);
+    glVertex2f(x + 50.0, y + 4.0);
+    glVertex2f(x + 50.0, y + 6.0);
+    glVertex2f(x + 48.0, y + 6.0);
+    glEnd();
+    glColor3ub(200, 0, 0);
+    glBegin(GL_POLYGON);
+    glVertex2f(x, y + 4.0);
+    glVertex2f(x + 2.0, y + 4.0);
+    glVertex2f(x + 2.0, y + 6.0);
+    glVertex2f(x, y + 6.0);
+    glEnd();
 }
+
+// Second modern sedan, replacing drawNewCar()
+void drawModernCar2() {
+    float x = 32.0;
+    float y = -80.0;
+    glColor3ub(0, 204, 204); // Cyan
+    glBegin(GL_POLYGON);
+    glVertex2f(x, y);
+    glVertex2f(x + 56.0, y);
+    glVertex2f(x + 56.0, y + 14.0);
+    glVertex2f(x, y + 14.0);
+    glEnd();
+    glColor3ub(0, 153, 153); // Darker cyan
+    glBegin(GL_POLYGON);
+    glVertex2f(x + 14.0, y + 14.0);
+    glVertex2f(x + 20.0, y + 24.0);
+    glVertex2f(x + 42.0, y + 24.0);
+    glVertex2f(x + 48.0, y + 14.0);
+    glEnd();
+    glColor3ub(135, 180, 255); // Light blue windshield
+    glBegin(GL_POLYGON);
+    glVertex2f(x + 15.0, y + 14.0);
+    glVertex2f(x + 20.0, y + 22.0);
+    glVertex2f(x + 25.0, y + 22.0);
+    glVertex2f(x + 25.0, y + 14.0);
+    glEnd();
+    glBegin(GL_POLYGON);
+    glVertex2f(x + 37.0, y + 14.0);
+    glVertex2f(x + 37.0, y + 22.0);
+    glVertex2f(x + 41.0, y + 22.0);
+    glVertex2f(x + 46.0, y + 14.0);
+    glEnd();
+    glColor3ub(100, 150, 255); // Medium blue windows
+    glBegin(GL_POLYGON);
+    glVertex2f(x + 25.0, y + 14.0);
+    glVertex2f(x + 25.0, y + 22.0);
+    glVertex2f(x + 37.0, y + 22.0);
+    glVertex2f(x + 37.0, y + 14.0);
+    glEnd();
+    glColor3ub(0, 0, 0);
+    glLineWidth(1.0);
+    glBegin(GL_LINES);
+    glVertex2f(x + 31.0, y + 14.0);
+    glVertex2f(x + 31.0, y + 22.0);
+    glVertex2f(x + 25.0, y + 18.0);
+    glVertex2f(x + 27.0, y + 18.0);
+    glVertex2f(x + 35.0, y + 18.0);
+    glVertex2f(x + 37.0, y + 18.0);
+    glEnd();
+    glColor3ub(50, 50, 50);
+    circle(6.0, 6.0, x + 18.0, y);
+    circle(6.0, 6.0, x + 44.0, y);
+    glColor3ub(0, 255, 255);
+    circle(3.5, 3.5, x + 18.0, y);
+    circle(3.5, 3.5, x + 44.0, y);
+    glColor3ub(255, 255, 255);
+    circle(1.5, 1.5, x + 18.0, y);
+    circle(1.5, 1.5, x + 44.0, y);
+    glColor3ub(150, 150, 150);
+    glLineWidth(1.5);
+    glBegin(GL_LINES);
+    for (int i = 0; i < 4; i++) {
+        float angle = i * PI / 2.0;
+        glVertex2f(x + 18.0, y);
+        glVertex2f(x + 18.0 + 3.0 * cosf(angle), y + 3.0 * sinf(angle));
+        glVertex2f(x + 44.0, y);
+        glVertex2f(x + 44.0 + 3.0 * cosf(angle), y + 3.0 * sinf(angle));
+    }
+    glEnd();
+    glColor3ub(200, 200, 200);
+    glBegin(GL_POLYGON);
+    glVertex2f(x + 54.0, y + 5.0);
+    glVertex2f(x + 56.0, y + 5.0);
+    glVertex2f(x + 56.0, y + 7.0);
+    glVertex2f(x + 54.0, y + 7.0);
+    glEnd();
+    glColor3ub(200, 0, 0);
+    glBegin(GL_POLYGON);
+    glVertex2f(x, y + 5.0);
+    glVertex2f(x + 2.0, y + 5.0);
+    glVertex2f(x + 2.0, y + 7.0);
+    glVertex2f(x, y + 7.0);
+    glEnd();
+}
+
 
 // Display function to render the scene
 void display() {
@@ -1234,8 +1346,9 @@ void display() {
     drawTreeLeaves();
     drawRiver();
     drawGrass();
-    drawCar();
-    drawNewCar();
+    drawRoad();
+    drawModernCar1();
+    drawModernCar2();
 
     // Draw foreground elements
     drawFlowerTree1();
@@ -1298,7 +1411,7 @@ void init() {
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitWindowSize(1240, 750);
-    glutCreateWindow("Sky with Clouds, Sun/Moon, Hills, River, and Village");
+    glutCreateWindow("Daydream to Nightfall The Animated Village");
     init();
     glutDisplayFunc(display);
     glutMainLoop();
