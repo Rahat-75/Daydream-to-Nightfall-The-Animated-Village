@@ -82,7 +82,7 @@ void drawSunMoon()
 {
     if (day > 0)
     {
-        glColor3f(1.0, 1.0, 0.0); // Yellow for sun
+        glColor3ub(255, 180, 50); // Bright coral sun
         circle(8.0, 12.0, -65.0, sunMoonPos);
     }
     else
@@ -123,7 +123,7 @@ void drawClouds()
 {
     glPushAttrib(GL_CURRENT_BIT | GL_ENABLE_BIT);
     glDisable(GL_BLEND);
-    glColor3ub(208, 222, 236);
+    glColor3ub(240, 245, 255); // Pale lavender clouds
 
     // Cloud 1
     circle(5.0, 5.0, cloudPosX - 80.0, 80.0);
@@ -429,7 +429,7 @@ void drawJet()
 void drawHillBoat()
 {
     // Boat hull
-    glColor3ub(100, 100, 100); // Gray
+    glColor3ub(60, 60, 180); // Darker vibrant indigo
     glBegin(GL_POLYGON);
     glVertex2f(hillBoatPosX - 90.0, -5.0);
     glVertex2f(hillBoatPosX - 20.0, -5.0);
@@ -437,7 +437,7 @@ void drawHillBoat()
     glVertex2f(hillBoatPosX - 95.0, 10.0);
     glEnd();
 
-    glColor3ub(150, 150, 150); // Lighter gray
+    glColor3ub(120, 120, 220); // Darker light purple
     glBegin(GL_POLYGON);
     glVertex2f(hillBoatPosX - 95.0, 10.0);
     glVertex2f(hillBoatPosX - 15.0, 10.0);
@@ -445,7 +445,7 @@ void drawHillBoat()
     glVertex2f(hillBoatPosX - 95.0, 15.0);
     glEnd();
 
-    glColor3ub(200, 0, 0); // Red stripe
+    glColor3ub(220, 80, 80); // Darker neon red stripe
     glBegin(GL_POLYGON);
     glVertex2f(hillBoatPosX - 90.0, -5.0);
     glVertex2f(hillBoatPosX - 20.0, -5.0);
@@ -454,7 +454,7 @@ void drawHillBoat()
     glEnd();
 
     // Boat portholes
-    glColor3ub(100, 100, 255);
+    glColor3ub(220, 170, 170); // Darker pale pink
     circle(2.0, 2.0, hillBoatPosX - 35.0, 2.5);
     circle(2.0, 2.0, hillBoatPosX - 75.0, 2.5);
     circle(2.0, 2.0, hillBoatPosX - 65.0, 2.5);
