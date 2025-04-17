@@ -1433,19 +1433,19 @@ void display()
     if (cloudPosX > 200.0) cloudPosX = -200.0;
     if (day > 0)
     {
-        sunMoonPos -= 0.025;
+        sunMoonPos -= 0.045;
         if (sunMoonPos < 00.0) day = -1.0;
     }
     else
     {
-        sunMoonPos += 0.025;
+        sunMoonPos += 0.045;
         if (sunMoonPos > 110.0) day = 1.0;
     }
     boatPosX += 0.075;
     if (boatPosX > 200.0) boatPosX = -200.0;
     jetPosX += jetSpeed;
     if (jetPosX > 120.0) jetPosX = -120.0;
-    hillBoatPosX += 0.06;
+    hillBoatPosX += 0.065;
     if (hillBoatPosX > 200.0) hillBoatPosX = -200.0;
 
     glutPostRedisplay();
