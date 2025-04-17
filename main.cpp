@@ -1433,12 +1433,12 @@ void display()
     if (cloudPosX > 200.0) cloudPosX = -200.0;
     if (day > 0)
     {
-        sunMoonPos -= 0.025;
+        sunMoonPos -= 0.045;
         if (sunMoonPos < 00.0) day = -1.0;
     }
     else
     {
-        sunMoonPos += 0.025;
+        sunMoonPos += 0.045;
         if (sunMoonPos > 110.0) day = 1.0;
     }
     boatPosX += 0.075;
